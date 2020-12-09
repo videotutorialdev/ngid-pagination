@@ -1,0 +1,26 @@
+<ul class="custom-pagination">
+    <li class="custom-pagination-item control" [ngClass]="dataSource.page === 1 ? 'disabled' : ''">
+        <a class="custom-pagination-link" (click)="dataSource.page === 1 ? '' : doChangePage(1)">
+            <i class="fas fa-angle-double-left"></i>
+        </a>
+    </li>
+    <li class="custom-pagination-item control" [ngClass]="dataSource.page === 1 ? 'disabled' : ''">
+        <a class="custom-pagination-link"  (click)="dataSource.page === 1 ? '' : doChangePage(dataSource.page > 1 ? dataSource.page - 1 : 1)">
+            <i class="fas fa-angle-left"></i>
+        </a>
+    </li>
+    <li class="custom-pagination-item" *ngFor="let paginationNumber of paginationNumberRangeList" 
+        [ngClass]="[paginationNumber === dataSource.page && paginationNumber !== '...'? 'active' : '', paginationNumber === '...' ? 'separator' : '']">
+            <a class="custom-pagination-link" (click)="doChangePage(paginationNumber)">{{ paginationNumber }}</a>
+    </li>
+    <li class="custom-pagination-item control" [ngClass]="dataSource.page === totalPage ? 'disabled' : ''">
+        <a class="custom-pagination-link" (click)="dataSource.page === totalPage ? '' : doChangePage(dataSource.page < totalPage ? dataSource.page + 1 : totalPage)">
+            <i class="fas fa-angle-right"></i>
+        </a>
+    </li>
+    <li class="custom-pagination-item control" [ngClass]="dataSource.page === totalPage ? 'disabled' : ''">
+        <a  class="custom-pagination-link" (click)="dataSource.page === totalPage ? '' : doChangePage(totalPage)">
+            <i class="fas fa-angle-double-right"></i>
+        </a>
+    </li>
+</ul>

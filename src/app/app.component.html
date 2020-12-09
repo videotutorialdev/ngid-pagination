@@ -1,0 +1,12 @@
+<div class="p-4">
+    <h1>Angular Pagination Tutorial</h1>
+    <h4>Welcome to ngid-pagination</h4>
+    <input type="text" class="form-control" (change)="handleChange($event.target.value)">
+    <select class="custom-select my-4" (change)="handlePageChange($event.target.value)">
+        <option selected>Choose...</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+    </select>
+    <ngid-pagination [dataSource]="pagination" (onPageChange)="handleOnPageChange($event)"></ngid-pagination>
+</div>
